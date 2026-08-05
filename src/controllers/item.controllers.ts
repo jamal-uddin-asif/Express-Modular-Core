@@ -20,7 +20,30 @@ const createItem = async (req: Request, res: Response) => {
   }
 };
 
+const getSignleItem = async (req: Request, res: Response) => {
+  try {
+    const item = await Item.findById({ _id: req.params.id });
 
-export const itemControllers =  {
-    createItem
-}
+    if (!item) {
+      res.status(404).json({
+        success: false,
+        message: "Item not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Item found successfully",
+      data: item,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const itemControllers = {
+  createItem,
+  getSignleItem,
+};

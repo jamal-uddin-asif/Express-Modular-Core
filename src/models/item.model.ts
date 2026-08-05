@@ -11,6 +11,10 @@ const itemSchema = new Schema<TItem>({
   rating: { type: Number, required: true },
   inStock: { type: Boolean, required: true },
   tags: { type: [String], required: true },
-});
+},
+{
+  timestamps: true
+}
+);
 
 export const Item = model<TItem>("Item", itemSchema);
