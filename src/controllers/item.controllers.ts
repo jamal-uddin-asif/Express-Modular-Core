@@ -21,6 +21,6 @@ const createItem = async (req: Request, res: Response) => {
 };
 
 
-export default {
+export const itemControllers =  {
     createItem
 }
