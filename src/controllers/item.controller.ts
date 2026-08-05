@@ -22,7 +22,9 @@ const createItem = async (req: Request, res: Response) => {
 
 const getSignleItem = async (req: Request, res: Response) => {
   try {
-    const item = await Item.findById({ _id: req.params.id });
+    const item = await Item.findById(
+      { _id: req.params.id }
+    );
 
     if (!item) {
       res.status(404).json({
