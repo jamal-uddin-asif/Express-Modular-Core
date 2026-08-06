@@ -13,4 +13,4 @@ const itemSchema = new Schema<TUser>({
 }
 );
 
-export const Item = model<TUser>("Users", itemSchema);
+export const User = model<TUser>("Users", itemSchema);
